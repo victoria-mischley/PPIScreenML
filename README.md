@@ -37,7 +37,11 @@ Arguments needed to run the script:
      - Number of interacting protiens = 2
   - Three proteins: A, B, C. Each protein has one chain. You are interested in looking at the interaction of protein A & C with protein B.
      - Not possible, you would have to reorder the proteins in your fasta file. 3. The name that you want for the output csv files.
-Example command: python PPI_ML_afv3/get_classification.py Downloads/AFV3_test_models 1 AFV3_test_models_resutls
+
+**you must change into the PPIScreenML directory first***
+
+Example command: cd PPIScreenML
+Example command: python get_classification.py ~/Downloads/AFV3_test_models 1 AFV3_test_models_resutls
 
 Outputs:
 
