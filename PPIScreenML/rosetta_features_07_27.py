@@ -242,7 +242,7 @@ def main(working_directory, num_chains_protein_B, interface_cutoff):
             interface_cutoff_str = str(interface_cutoff)
 
             BE_complex_name = f"BE_complex"
-            BE_bining_energy_name = f"BE_bining_energy"
+            BE_bining_energy_name = f"Binding_energy"
             fa_atr_complex_name = f"fa_atr_complex"
             fa_atr_binding_name = f"fa_atr_binding"
             fa_rep_complex_name = f"fa_rep_complex"
