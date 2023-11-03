@@ -22,21 +22,20 @@ def args():
 	return args
 
 def main(working_directory, num_chains_protein_B, interface_cutoff):
-	interface_cutoff_str = str(interface_cutoff)
-	num_of_IF_contacts_name = f"num_of_IF_contacts_{interface_cutoff_str}A"
-	num_unique_residues_at_interface_name = f"num_unique_residues_at_interface{interface_cutoff_str}A"
-	num_polar_uncharged_AAs_IF_name = f"num_polar_uncharged_AAs_IF_{interface_cutoff_str}A"
-	num_nonpolar_AAs_IF_name = f"num_nonpolar_AAs_IF_{interface_cutoff_str}A"
-	num_charged_AAs_IF_name = f"num_charged_AAs_IF_{interface_cutoff_str}A"
-	num_neg_AAs_IF_name = f"num_neg_AAs_IF_{interface_cutoff_str}A"
-	num_pos_AAs_IF_name = f"num_pos_AAs_IF_{interface_cutoff_str}A"
-	num_all_charged_IF_name = f"num_all_charged_IF_{interface_cutoff_str}A"
-	num_all_polar_all_polar_aa_contacts_atIF_name = f"num_all_polar_all_polar_aa_contacts_atIF_{interface_cutoff_str}A"
-	num_polar_polar_aa_contacts_atIF_name = f"num_polar_polar_aa_contacts_atIF_{interface_cutoff_str}A"
-	num_charged_charged_aa_contacts_atIF_name = f"num_charged_charged_aa_contacts_atIF_{interface_cutoff_str}A"
-	num_nonpolar_nonpolar_aa_conatacts_atIF_name = f"num_nonpolar_nonpolar_aa_conatacts_atIF_{interface_cutoff_str}A"
-	num_pos_neg_aa_contact_atIF_name = f"num_pos_neg_aa_contact_atIF_{interface_cutoff_str}A"
-	num_neg_pos_aa_contact_atIF_name = f"num_neg_pos_aa_contact_atIF_{interface_cutoff_str}A"
+	num_of_IF_contacts_name = f"num_of_IF_contacts"
+	num_unique_residues_at_interface_name = f"num_unique_residues_at_interface"
+	num_polar_uncharged_AAs_IF_name = f"num_polar_uncharged_AAs_IF"
+	num_nonpolar_AAs_IF_name = f"num_nonpolar_AAs_IF"
+	num_charged_AAs_IF_name = f"num_charged_AAs_IF"
+	num_neg_AAs_IF_name = f"num_neg_AAs_IF"
+	num_pos_AAs_IF_name = f"num_pos_AAs_IF"
+	num_all_charged_IF_name = f"num_all_charged_IF"
+	num_all_polar_all_polar_aa_contacts_atIF_name = f"num_all_polar_all_polar_aa_contacts_atIF"
+	num_polar_polar_aa_contacts_atIF_name = f"num_polar_polar_aa_contacts_atIF"
+	num_charged_charged_aa_contacts_atIF_name = f"num_charged_charged_aa_contacts_atIF"
+	num_nonpolar_nonpolar_aa_conatacts_atIF_name = f"num_nonpolar_nonpolar_aa_conatacts_atIF"
+	num_pos_neg_aa_contact_atIF_name = f"num_pos_neg_aa_contact_atIF"
+	num_neg_pos_aa_contact_atIF_name = f"num_neg_pos_aa_contact_atIF"
 	
 	directory = Path(working_directory)
 	pdb_files  = list(directory.glob('*.pdb'))
