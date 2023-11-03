@@ -152,14 +152,14 @@ def main(working_directory, num_chains_protein_B, interface_cutoff):
 				    top_1_4_iPAE_final = np.round(np.average(top_1_4_iPAE_sorted), 4)
 				
 				
-				interface_cutoff_str = str(interface_cutoff)
-				ptm_name = f"ptm_{interface_cutoff_str}A"
-				plddt_name = f"pLDDT_{interface_cutoff_str}A"
-				iplddt_name = f"ipLDDT_{interface_cutoff_str}A"
-				iPAE_name = f"iPAE_{interface_cutoff_str}A"
-				iPAE_1_4_name = f"iPAE_top_1_4_{interface_cutoff_str}A"
-				tPAE_name = f"tPAE_{interface_cutoff_str}A"
-				tPAE_1_4_name = f"tPAE_top_1_4_{interface_cutoff_str}A"
+				
+				ptm_name = f"ptm"
+				plddt_name = f"pLDDT"
+				iplddt_name = f"ipLDDT"
+				iPAE_name = f"iPAE"
+				iPAE_1_4_name = f"iPAE_top_1_4"
+				tPAE_name = f"tPAE"
+				tPAE_1_4_name = f"tPAE_top_1_4"
 
 				####Export file name and pDockQ score
 				data = {'File_name': file_name,
@@ -175,14 +175,14 @@ def main(working_directory, num_chains_protein_B, interface_cutoff):
 
 			else:
 
-				interface_cutoff_str = str(interface_cutoff)
-				ptm_name = f"ptm_{interface_cutoff_str}A"
-				plddt_name = f"pLDDT_{interface_cutoff_str}A"
-				iplddt_name = f"ipLDDT_{interface_cutoff_str}A"
-				iPAE_name = f"iPAE_{interface_cutoff_str}A"
-				iPAE_1_4_name = f"iPAE_top_1_4_{interface_cutoff_str}A"
-				tPAE_name = f"tPAE_{interface_cutoff_str}A"
-				tPAE_1_4_name = f"tPAE_top_1_4_{interface_cutoff_str}A"
+				
+				ptm_name = f"ptm"
+				plddt_name = f"pLDDT"
+				iplddt_name = f"ipLDDT"
+				iPAE_name = f"iPAE"
+				iPAE_1_4_name = f"iPAE_top_1_4"
+				tPAE_name = f"tPAE"
+				tPAE_1_4_name = f"tPAE_top_1_4"
 
 				data = {'File_name': file_name,
 						ptm_name: ptm,
