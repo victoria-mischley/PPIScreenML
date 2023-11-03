@@ -5,6 +5,7 @@ Run the get_classification.py script to use the model and get the results.
 Requirements:
 
 - The ColabFold input folder must contain AMBER relaxed models and the corresponding .json file for each model.
+- The protein that you are wishing to check for interactions must be the last protein in the sequence. If it is a 2 protein model, it must be protein 2, if it is a three protein model, it must be protein 3. 
 
 Packages Needed:
 - biopandas
