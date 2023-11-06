@@ -19,7 +19,12 @@ Packages Needed:
 
 Software needed:
 - ColabFold
-- pyRosetta 
+- pyRosetta
+  - link to get pyrosetta academic license: https://els2.comotion.uw.edu/product/pyrosetta
+  - link to install pyrosetta: https://www.pyrosetta.org/downloads
+    - create a new conda enviroment: conda create --name newenv
+    - activate conda enviroment: conda activate newenv
+    - 
 
 Arguments needed to run the script:
 
