@@ -7,18 +7,12 @@ Requirements:
 - The ColabFold input folder must contain AMBER relaxed models and the corresponding .json file for each model.
 - The protein that you are wishing to check for interactions must be the last protein in the sequence. If it is a 2 protein model, it must be protein 2, if it is a three protein model, it must be protein 3. 
 
-Packages Needed:
-- biopandas
-- numpy
-- pandas
-- argparse
-- xgboost
-- json
-- os
 
-
-Software needed:
+Software needed to generate models:
 - ColabFold
+  - link to colabfold github: https://github.com/sokrypton/ColabFold
+    
+Software needed to generate features:
 - pyRosetta
   - link to get pyrosetta academic license: https://els2.comotion.uw.edu/product/pyrosetta
   - link to install pyrosetta: https://www.pyrosetta.org/downloads
@@ -28,6 +22,15 @@ Software needed:
     - edit ~/.condarc: vi ~/.condarc
     - add in info listed here: https://www.pyrosetta.org/downloads#h.c0px19b8kvuw
     - run command: conda install pyrosetta
+
+Packages Needed to generate features:
+- biopandas
+- numpy
+- pandas
+- argparse
+- xgboost
+- json
+- os
    
 - download other python packages into the same enviroment into which pyrosetta was downloaded.
 
@@ -50,8 +53,11 @@ Arguments needed to run the script:
 
 **you must change into the PPIScreenML directory first***
 
-Example command: cd PPIScreenML
-Example command: python get_classification.py ~/Downloads/AFV3_test_models 1 AFV3_test_models_resutls
+Command 1: cd <path_to_PPIScreenML_folder?
+Command 2: python get_classification.py <path_to_folder_with_AF_models> <number_of_chains_protein_B> <name_of_output_csv_file>
+
+Example command 1: cd PPIScreenML
+Example command 2: python get_classification.py ~/Downloads/AFV3_test_models 1 AFV3_test_models_resutls
 
 Outputs:
 
