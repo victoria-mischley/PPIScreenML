@@ -9,14 +9,13 @@ Requirements:
 
 Packages Needed:
 - biopandas
-- pathlib
 - numpy
-- collections
+- pandas
 - argparse
 - xgboost
 - json
 - os
-- copy
+
 
 Software needed:
 - ColabFold
