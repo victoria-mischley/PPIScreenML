@@ -20,7 +20,7 @@ Software needed to generate features:
     - create a new conda enviroment: conda create --name newenv
     - activate conda enviroment: conda activate newenv
     - edit ~/.condarc: vi ~/.condarc
-    - add in info listed here: https://www.pyrosetta.org/downloads#h.c0px19b8kvuw
+    - add in info listed here (use WEST cost): https://www.pyrosetta.org/downloads#h.c0px19b8kvuw
     - run command: conda install pyrosetta
 
 Packages Needed to generate features:
