@@ -81,7 +81,7 @@ def main(working_directory, num_chains_protein_B, interface_cutoff):
 					count = unique_residues_names.count(AA)
 					count_dict[AA] = count
 					var_name = 'num_{}_IF'.format(AA)
-					var_name_edited = f"{var_name}_{interface_cutoff_str}A"
+					var_name_edited = f"{var_name}"
 					var_dict[var_name_edited] = count
 
 				
