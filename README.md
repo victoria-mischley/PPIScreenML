@@ -22,9 +22,14 @@ Software needed:
 - pyRosetta
   - link to get pyrosetta academic license: https://els2.comotion.uw.edu/product/pyrosetta
   - link to install pyrosetta: https://www.pyrosetta.org/downloads
+  - Instructions for installation of pyrosetta on expanse:
     - create a new conda enviroment: conda create --name newenv
     - activate conda enviroment: conda activate newenv
-    - 
+    - edit ~/.condarc: vi ~/.condarc
+    - add in info listed here: https://www.pyrosetta.org/downloads#h.c0px19b8kvuw
+    - run command: conda install pyrosetta
+   
+- download other python packages into the same enviroment into which pyrosetta was downloaded.
 
 Arguments needed to run the script:
 
