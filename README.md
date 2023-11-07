@@ -54,9 +54,11 @@ Arguments needed to run the script:
 **you must change into the PPIScreenML directory first***
 
 Command 1: cd <path_to_PPIScreenML_folder>
+
 Command 2: python get_classification.py <path_to_folder_with_AF_models> <number_of_chains_protein_B> <name_of_output_csv_file>
 
 Example command 1: cd PPIScreenML
+
 Example command 2: python get_classification.py ~/Downloads/AFV3_test_models 1 AFV3_test_models_resutls
 
 Outputs:
