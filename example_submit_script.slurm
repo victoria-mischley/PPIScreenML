@@ -10,6 +10,7 @@
 #SBATCH --account=was136
 #SBATCH --mem=8G
 ______________________________________________________________________
+source ~/.bashrc
 conda activate <conda_enviroment>
 cd PPIScreenML
 python get_classification.py <path_to_models> <number_of_chains_protein_B> <name_for_output_csv_file>
