@@ -5,7 +5,6 @@ from pathlib import Path
 import pandas as pd
 from collections import Counter
 import argparse
-import utils
 import Fix_formatting
 
 def args():
