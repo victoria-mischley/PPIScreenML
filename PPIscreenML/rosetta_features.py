@@ -17,7 +17,6 @@ import pyrosetta; pyrosetta.init()
 from pyrosetta import *
 from pyrosetta.teaching import *
 init('-add_orbitals')
-import utils
 
 def args():
     parser = argparse.ArgumentParser(description='Combine dataframes')
