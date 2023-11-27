@@ -13,4 +13,4 @@ ______________________________________________________________________
 source ~/.bashrc
 conda activate <conda_enviroment>
 cd PPIScreenML
-python get_classification.py <path_to_models> <number_of_chains_protein_B> <name_for_output_csv_file>
+python get_classification.py --working_directory <path_to_folder_with_AF_models> --protein1_chains_input A, B --protein2_chains_input C --csv_name interaction_anlaysis
