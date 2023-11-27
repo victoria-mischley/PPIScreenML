@@ -141,7 +141,7 @@ def main(file_path, protein1_chains_input, protein2_chains_input):
             protein1_new_atomnum_res_num_dict[atom_number] = new_residue_number
         # Update the old_residue_number for the next iteration
             current_res_number = old_residue_number
-        offset = counter10
+        offset += counter10
         counter5 +=1
 
 
@@ -163,7 +163,7 @@ def main(file_path, protein1_chains_input, protein2_chains_input):
             protein2_new_atomnum_res_num_dict[atom_number] = new_residue_number
         # Update the old_residue_number for the next iteration
             current_res_number = old_residue_number
-        offset = counter11
+        offset += counter11
         counter6 +=1
 
     combined_new_atomnum_resnum = {**protein1_new_atomnum_res_num_dict, **protein2_new_atomnum_res_num_dict}
