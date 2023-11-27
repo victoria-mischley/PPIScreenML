@@ -36,6 +36,8 @@ Packages Needed to generate features:
 
 Arguments needed to run the script:
 
+
+
 1. Working directory: location of the ColabFold folder on your computer
 2. Number of chains of protein B: this is the number of chains of your last protein. The script will change everything everything but the number of chains of protein B to "A" and the number of chains of protein B to "B". It will then calculate the interface between A and B. Here are examples:
   - Two proteins: A, B. Each protein has one chain.
