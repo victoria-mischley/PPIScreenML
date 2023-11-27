@@ -5,8 +5,8 @@ Run the get_classification.py script to use the model and get the results.
 Requirements:
 
 - The ColabFold input folder must contain AMBER relaxed models and the corresponding .json file for each model.
-- The protein that you are wishing to check for interactions must be the last protein in the sequence. If it is a 2 protein model, it must be protein 2, if it is a three protein model, it must be protein 3. 
-
+- This identifies an interacting protein with respect to the other proteins in the model. You must decide what chains in the pdb file are considered protein 1 and what chains are considered protein 2.
+  - For example, if I have a four protein model (chains: A, B, C, D) and want to look at chain B's interaction with the rest of the model, protein 1 wouuld be considered chains A, C, D and protein 2 would be considered chain B.
 
 Software needed to generate models:
 - ColabFold
@@ -35,35 +35,46 @@ Packages Needed to generate features:
 - download other python packages into the same enviroment into which pyrosetta was downloaded.
 
 Arguments needed to run the script:
+1. working_directory: location of the ColabFold folder on your computer
+2. protein1_chains_input: list of the names of the chains that will be considered protein 1
+3. protein2_chains_input: list of the names of the chains that will be considered protein 2
+4. csv_name: desired name for the output csvfile with the results
 
-
-
-1. Working directory: location of the ColabFold folder on your computer
-2. Number of chains of protein B: this is the number of chains of your last protein. The script will change everything everything but the number of chains of protein B to "A" and the number of chains of protein B to "B". It will then calculate the interface between A and B. Here are examples:
-  - Two proteins: A, B. Each protein has one chain.
-     - Number of chain protiens = 1
-  - Two proteins: A, B. Protein A has 2 chains (denoted by ":") and protein B has 1 chain.
-     - Number of interacting protiens = 1
-  - Two proteins: A, B. Protein A has 1 chain (denoted by ":") and protein B has 2 chains.
-     - Number of interacting protiens = 2
-  - Three proteins: A, B, C. Each protein has one chain. You are interested in looking at the interaction of protein A & B with protein C.
-     - Number of interacting protiens = 1
-  - Three proteins: A, B, C. Each protein has one chain. You are interested in looking at the interaction of protein B & C with protein A.
-     - Number of interacting protiens = 2
-  - Three proteins: A, B, C. Each protein has one chain. You are interested in looking at the interaction of protein A & C with protein B.
-     - Not possible, you would have to reorder the proteins in your fasta file. 3. The name that you want for the output csv files.
-
+Example command:
 **you must change into the PPIScreenML directory first***
 
 Command 1: cd <path_to_PPIScreenML_folder>
 
-Command 2: python get_classification.py <path_to_folder_with_AF_models> <number_of_chains_protein_B> <name_of_output_csv_file>
+Command 2: python get_classification.py --working_directory <path_to_folder_with_AF_models> --protein1_chains_input A, B --protein2_chains_input C  --csv_name interaction_anlaysis
+Outputs:
+The feature CSV file. This contains the features extracted for each model. It can be used to looked at individual metrics.
+The results CSV file. This contains the scores, the predicted label, and the final prediction of interacting vs. non-interacting.
+
+Optional functionality:
+If you are running a high throughput screen with different numbers of proteins, but are consistently modeling the protein for which you are looking for the interaction as the last protein, you can change the flags --protein1_chains_input and --protein2_chains_input to 1. 
+- This will all chains other than the last as protein 1 and the last chain as protein 2.
+  - For example:
+    - Two prtoeins: A, B. Each protein has one chain.
+     - This setting will look at the interaction of A to B
+  - Two proteins: A, B. Protein A has 2 chains (denoted by ":") and protein B has 1 chain. So in the pdb file, chains A and B are protein 1 and chain C is protein 2
+     - This setting will look at A and B against C.
+  - Three proteins: A, B, C. Each protein has one chain. You are interested in looking at the interaction of protein A & B with protein C.
+     - This setting will look at A and B against C.
+
+Example command:
+**you must change into the PPIScreenML directory first***
+
+Command 1: cd <path_to_PPIScreenML_folder>
+
+Command 2: python get_classification.py --working_directory <path_to_folder_with_AF_models> --protein1_chains_input 1 --protein2_chains_input 1  --csv_name interaction_anlaysis
 
 Example command 1: cd PPIScreenML
 
 Example command 2: python get_classification.py ~/Downloads/AFV3_test_models 1 AFV3_test_models_resutls
 
 Outputs:
-
 The feature CSV file. This contains the features extracted for each model. It can be used to looked at individual metrics.
 The results CSV file. This contains the scores, the predicted label, and the final prediction of interacting vs. non-interacting.
+
+Other functionality:
+you can use the fix_formatting script alone and this will output the pdb file with the modified chains. For example, if in ColabFold you modeled protein 1 as chains A, B, and C and protein 2 as chain D, this will output a pdb file with chains A, B, and C as A and chain D as B.
