@@ -80,7 +80,7 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
 	final_df.reset_index(drop = True, inplace = True)
 	
 	csv_file_path = f"{working_directory}/{csv_name}_features.csv"
-	final_df.to_csv(csv_file_path)
+	final_df.to_csv(csv_file_path, index=False)
 
 	return final_df
 
