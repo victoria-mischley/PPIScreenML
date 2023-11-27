@@ -57,3 +57,8 @@ if __name__ == '__main__':
 	AF_chainB_CB = AF_chainB_CB_df.loc[(AF_chainB_CB_df['atom_name'] == 'CB') | ((AF_chainB_CB_df['residue_name'] == 'GLY') & (AF_chainB_CB_df['atom_name'] == 'CA'))]
 	AF_fixed_CB = AF_fixed_df.loc[(AF_fixed_df['atom_name'] == 'CB') | ((AF_fixed_df['residue_name'] == 'GLY') & (AF_fixed_df['atom_name'] == 'CA'))]
 	main(AF_chainA_CB, AF_chainB_CB)
+	
+	file_path = Path(args.file_path)
+	working_directory = file_path.parent
+	csv_file_path = f"{working_directory}/interface_dataframe.csv"
+	results_df.to_csv(csv_file_path, index=False)
