@@ -77,4 +77,5 @@ The feature CSV file. This contains the features extracted for each model. It ca
 The results CSV file. This contains the scores, the predicted label, and the final prediction of interacting vs. non-interacting.
 
 Other functionality:
-you can use the fix_formatting script alone and this will output the pdb file with the modified chains. For example, if in ColabFold you modeled protein 1 as chains A, B, and C and protein 2 as chain D, this will output a pdb file with chains A, B, and C as A and chain D as B.
+- you can use the fix_formatting script alone and this will output the pdb file with the modified chains. For example, if in ColabFold you modeled protein 1 as chains A, B, and C and protein 2 as chain D, this will output a pdb file with chains A, B, and C as A and chain D as B.
+- you can run get_interface_dataframe seperatley to get a csv file with the interacting residues of the two proteins
