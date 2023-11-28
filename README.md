@@ -45,7 +45,7 @@ Example command:
 
 Command 1: cd <path_to_PPIScreenML_folder>
 
-Command 2: python get_classification.py --working_directory <path_to_folder_with_AF_models> --protein1_chains_input A, B --protein2_chains_input C  --csv_name interaction_anlaysis
+Command 2: python get_classification.py --working_directory <path_to_folder_with_AF_models> --protein1_chains_input A B --protein2_chains_input C  --csv_name interaction_anlaysis
 Outputs:
 The feature CSV file. This contains the features extracted for each model. It can be used to looked at individual metrics.
 The results CSV file. This contains the scores, the predicted label, and the final prediction of interacting vs. non-interacting.
