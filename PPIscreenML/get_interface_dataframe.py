@@ -59,6 +59,9 @@ if __name__ == '__main__':
 	main(AF_chainA_CB, AF_chainB_CB)
 	
 	file_path = Path(args.file_path)
+	file_name = file_path.name
 	working_directory = file_path.parent
 	csv_file_path = f"{working_directory}/interface_dataframe.csv"
 	results_df.to_csv(csv_file_path, index=False)
+	fixed_PDB_output_file_path = f"{working_directory}/{file_name}_fixed.pdb"
+    	AF.to_pdb(path=fixed_PDB_output_file_path, records=None, gz=False, append_newline=True)
