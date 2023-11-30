@@ -64,4 +64,4 @@ if __name__ == '__main__':
 	csv_file_path = f"{working_directory}/interface_dataframe.csv"
 	results_df.to_csv(csv_file_path, index=False)
 	fixed_PDB_output_file_path = f"{working_directory}/{file_name}_fixed.pdb"
-    	AF.to_pdb(path=fixed_PDB_output_file_path, records=None, gz=False, append_newline=True)
+	AF.to_pdb(path=fixed_PDB_output_file_path, records=None, gz=False, append_newline=True)
