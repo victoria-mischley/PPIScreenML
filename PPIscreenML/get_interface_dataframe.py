@@ -56,7 +56,7 @@ if __name__ == '__main__':
 	AF_chainA_CB = AF_chainA_CB_df.loc[(AF_chainA_CB_df['atom_name'] == 'CB') | ((AF_chainA_CB_df['residue_name'] == 'GLY') & (AF_chainA_CB_df['atom_name'] == 'CA'))]
 	AF_chainB_CB = AF_chainB_CB_df.loc[(AF_chainB_CB_df['atom_name'] == 'CB') | ((AF_chainB_CB_df['residue_name'] == 'GLY') & (AF_chainB_CB_df['atom_name'] == 'CA'))]
 	AF_fixed_CB = AF_fixed_df.loc[(AF_fixed_df['atom_name'] == 'CB') | ((AF_fixed_df['residue_name'] == 'GLY') & (AF_fixed_df['atom_name'] == 'CA'))]
-	main(AF_chainA_CB, AF_chainB_CB)
+	results_df = main(AF_chainA_CB, AF_chainB_CB)
 	
 	file_path = Path(args.file_path)
 	file_name = file_path.name
@@ -64,4 +64,4 @@ if __name__ == '__main__':
 	csv_file_path = f"{working_directory}/interface_dataframe.csv"
 	results_df.to_csv(csv_file_path, index=False)
 	fixed_PDB_output_file_path = f"{working_directory}/{file_name}_fixed.pdb"
-	AF.to_pdb(path=fixed_PDB_output_file_path, records=None, gz=False, append_newline=True)
+	AF_fixed.to_pdb(path=fixed_PDB_output_file_path, records=None, gz=False, append_newline=True)
