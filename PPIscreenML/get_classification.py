@@ -34,9 +34,8 @@ def get_scores(X):
     return model_scores, predicted_label
 
 
-def main(working_directory, protein1_chains_input, protein2_chains_input, csv_name):
-    ####get featurews df 
-    features_df = get_features.main(working_directory, protein1_chains_input, protein2_chains_input, csv_name)
+def main(working_directory, protein1_chains_input, protein2_chains_input, csv_name, features_file_path):
+    features_df = pd.read_csv(features_file_path)
     ###Get columns for reduced feature model#### Df is offset by one
     columns_red_feats =  [4, 14, 15, 16, 17, 21, 28]
     df_columns_red_feats = [-1, 4, 14, 15, 16, 17, 21, 28]
@@ -48,7 +47,7 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
     nonans_red_feats = features_df.iloc[:, columns_red_feats_std].dropna()
     X = nonans_red_feats.values
     X_df = features_df.iloc[:, df_columns_red_feats_std].dropna()
-
+    print(X_df)
     ####Get the names of the files that had no interface and were dropped and assign as 0
     file_names_all = features_df['File_name']
     file_names_X_df = X_df['File_name']
@@ -78,8 +77,7 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
     ###Add in the ones that did not have any interface
     results = pd.concat([results_dropped_files, results_not_dropped], axis=0, ignore_index=True)
     results['predicted_label'] = results['predicted_label'].round().astype(int)
-   
-
+    results.to_csv(f"{combined_csv_name}_classification_results.csv", mode='w', header=True, index=False)
 
 
     def label_to_prediction(label):
@@ -92,7 +90,7 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
     # Filter rows where prob_rank is 1
     filtered_df = results[results['prob_rank'] == 1]
     final_df = filtered_df.drop(columns=['prob_rank', 'common_name'])
-    final_df.to_csv(f"{combined_csv_name}_classification_results.csv", mode='w', header=True, index=False)
+    final_df.to_csv(f"{combined_csv_name}_classification_results_topmodel.csv", mode='w', header=True, index=False)
     
     print(results)
 
@@ -101,6 +99,9 @@ if __name__ == '__main__':
     working_directory = args.working_directory
     csv_name = args.csv_name
     combined_csv_name = f"{working_directory}/{csv_name}"
-    main(working_directory, args.protein1_chains_input, args.protein2_chains_input, csv_name)
+        ####get featurews df        
+    features_file_path = f"{working_directory}/{csv_name}_features.csv"
+    main(working_directory, args.protein1_chains_input, args.protein2_chains_input, csv_name, features_file_path)
+
     
       
