@@ -54,6 +54,8 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
     file_names_dropped = file_names_all[~file_names_all.isin(file_names_X_df)]
 
     results_dropped_files = pd.DataFrame()
+    dropped_files_data = []  # List to store individual DataFrames
+
     if len(file_names_dropped) != 0:
         for val in file_names_dropped:
             data = {
@@ -61,9 +63,13 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
                 'score': 0,
                 'predicted_label': 0
             }
-        results_dropped_files = results_dropped_files.append(data, ignore_index=True)
+    # Create a DataFrame for each iteration and add it to the list
+    dropped_files_data.append(pd.DataFrame([data]))
 
-
+# Concatenate all the DataFrames in the list
+    if dropped_files_data:
+        results_dropped_files = pd.concat(dropped_files_data, ignore_index=True)
+    
     ####Get predicted score
     model_scores, predicted_label = get_scores(X)
     
@@ -91,8 +97,6 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
     filtered_df = results[results['prob_rank'] == 1]
     final_df = filtered_df.drop(columns=['prob_rank', 'common_name'])
     final_df.to_csv(f"{combined_csv_name}_classification_results_topmodel.csv", mode='w', header=True, index=False)
-    
-    print(results)
 
 if __name__ == '__main__':
     args = args()
@@ -104,4 +108,3 @@ if __name__ == '__main__':
     main(working_directory, args.protein1_chains_input, args.protein2_chains_input, csv_name, features_file_path)
 
     
-      
