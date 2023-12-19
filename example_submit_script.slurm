@@ -13,4 +13,4 @@ ______________________________________________________________________
 source ~/.bashrc
 conda activate <conda_enviroment>
 cd PPIscreenML
-python get_classification.py --working_directory <path_to_folder_with_AF_models> --protein1_chains_input A, B --protein2_chains_input C --csv_name interaction_anlaysis
+python get_classification.py --working_directory <path_to_folder_with_AF_models> --protein1_chains_input A B --protein2_chains_input C --csv_name interaction_anlaysis
