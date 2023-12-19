@@ -35,7 +35,7 @@ def get_scores(X):
 
 
 def main(working_directory, protein1_chains_input, protein2_chains_input, csv_name, features_file_path):
-    features_df = pd.read_csv(features_file_path)
+    features_df =  = get_features.main(working_directory, protein1_chains_input, protein2_chains_input, csv_name)
     ###Get columns for reduced feature model#### Df is offset by one
     columns_red_feats =  [4, 14, 15, 16, 17, 21, 28]
     df_columns_red_feats = [-1, 4, 14, 15, 16, 17, 21, 28]
