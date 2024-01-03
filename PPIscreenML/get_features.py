@@ -39,7 +39,7 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
 	final_df = pd.DataFrame()
 	for i,file in enumerate(pdb_files):
 		results = []
-		if file != ".DS_Store":
+		if file != ".DS_Store" and file.endswith(".pdb"):
 			##Match pdb name with appropriate .json file#####
 			file_name = file.stem
 			print(file_name)
