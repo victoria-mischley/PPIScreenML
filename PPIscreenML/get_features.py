@@ -38,10 +38,10 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
 	dict_list = []
 	final_df = pd.DataFrame()
 	for i,file in enumerate(pdb_files):
+		file_name = file.stem
 		results = []
-		if file != ".DS_Store" and file.endswith(".pdb"):
+		if file != ".DS_Store" and file_name.endswith(".pdb"):
 			##Match pdb name with appropriate .json file#####
-			file_name = file.stem
 			print(file_name)
 			pdb_prefix = str(file_name).split('_unrelaxed_')[0] if '_unrelaxed_' in str(file_name) else str(file_name).split('_relaxed_')[0]
 			pdb_suffix = str(file_name).split('_unrelaxed_')[1] if '_unrelaxed_' in str(file_name) else str(file_name).split('_relaxed_')[1]
