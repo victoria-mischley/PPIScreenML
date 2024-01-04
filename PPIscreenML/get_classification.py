@@ -64,7 +64,7 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
                 'predicted_label': 0
             }
     # Create a DataFrame for each iteration and add it to the list
-    dropped_files_data.append(pd.DataFrame([data]))
+    	dropped_files_data.append(pd.DataFrame([data]))
 
 # Concatenate all the DataFrames in the list
     if dropped_files_data:
