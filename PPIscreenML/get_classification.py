@@ -36,6 +36,7 @@ def get_scores(X):
 
 def main(working_directory, protein1_chains_input, protein2_chains_input, csv_name, features_file_path):
     features_df = get_features.main(working_directory, protein1_chains_input, protein2_chains_input, csv_name)
+    print(features_df)
     ###Get columns for reduced feature model#### Df is offset by one
     columns_red_feats =  [4, 14, 15, 16, 17, 21, 28]
     df_columns_red_feats = [-1, 4, 14, 15, 16, 17, 21, 28]
@@ -54,6 +55,7 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
     file_names_dropped = file_names_all[~file_names_all.isin(file_names_X_df)]
 
     results_dropped_files = pd.DataFrame()
+    print(results_dropped_files)
     dropped_files_data = []  # List to store individual DataFrames
 
     if len(file_names_dropped) != 0:
@@ -63,8 +65,7 @@ def main(working_directory, protein1_chains_input, protein2_chains_input, csv_na
                 'score': 0,
                 'predicted_label': 0
             }
-    # Create a DataFrame for each iteration and add it to the list
-    	dropped_files_data.append(pd.DataFrame([data]))
+            dropped_files_data.append(pd.DataFrame([data]))
 
 # Concatenate all the DataFrames in the list
     if dropped_files_data:
