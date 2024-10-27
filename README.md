@@ -79,3 +79,9 @@ The results CSV file. This contains the scores, the predicted label, and the fin
 Other functionality:
 - you can use the fix_formatting script alone and this will output the pdb file with the modified chains. For example, if in ColabFold you modeled protein 1 as chains A, B, and C and protein 2 as chain D, this will output a pdb file with chains A, B, and C as A and chain D as B.
 - you can run get_interface_dataframe seperatley to get a csv file with the interacting residues of the two proteins
+
+
+
+
+#Test Data
+Example models generated from colabfold are in the folder test_data/test_data_input. The output from PPIscreenML is located in test_data/test_data_output. Please note that when using PPIscreenML the output csv files will be placed inside the folder with the models, in this case the csv files would be placed in test_data/test_data_input. 
